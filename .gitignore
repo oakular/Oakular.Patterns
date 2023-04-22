@@ -1,0 +1,42 @@
+obj
+bin
+node_modules
+dist
+
+wwwroot
+.DS_Store
+/dist
+
+/tests/e2e/reports/
+selenium-debug.log
+chromedriver.log
+geckodriver.log
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+.vs
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+obj/
+/Herodotus.API/appsettings.Development.json
+/Herodotus.Functions/local.settings.json
+/Herodotus.Functions/Properties/serviceDependencies.local.json.user
+/Herodotus.Functions/Properties/serviceDependencies.local.json
+/Herodotus.Functions/Properties/serviceDependencies.json
+/Herodotus.Functions/Properties/launchSettings.json
+/Herodotus.Functions/Properties
