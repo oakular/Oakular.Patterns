@@ -1,7 +1,7 @@
 using Azure.Storage.Blobs;
 using Oakular.Patterns.Repository;
 
-namespace Repository.GivenAPattern;
+namespace Repository.GivenAListing;
 
 [Trait("Context", "When getting")]
 public class WhenGetting
@@ -12,16 +12,13 @@ public class WhenGetting
     [Fact(DisplayName = "All patterns are returned.")]
     public void AllPatternsAreReturned()
     {
-        var svc = new BlobServiceClient(ConnectionString);
-        svc.CreateBlobContainer(containerName);
+        var client = new BlobServiceClient(ConnectionString);
+        client.CreateBlobContainer(containerName);
 
-        var client = new BlobContainerClient(ConnectionString, containerName);
-        client.UploadBlob(Guid.NewGuid().ToString(), new MemoryStream());
-
-        var sut = new PatternRepository(client);
+        var sut = new ListingRepository(client);
 
         sut.Get().Should().NotBeEmpty();
 
-        svc.DeleteBlobContainer(containerName);
+        client.DeleteBlobContainer(containerName);
     }
 }

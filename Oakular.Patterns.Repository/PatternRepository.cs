@@ -4,18 +4,18 @@ using Oakular.Patterns.Repository.Models;
 
 namespace Oakular.Patterns.Repository;
 
-public sealed class PatternRepository
+public sealed class ListingRepository
 {
-    private readonly BlobContainerClient client;
+    private readonly BlobServiceClient client;
 
-    public PatternRepository(BlobContainerClient client)
+    public ListingRepository(BlobServiceClient client)
     {
         this.client = client;
     }
 
-    public IImmutableList<Pattern> Get()
+    public IImmutableList<Listing> Get()
     {
-        var blobs = client.GetBlobs().ToImmutableList();
-        return blobs.Select(_ => new Pattern()).ToImmutableList();
+        var containers = client.GetBlobContainers().ToImmutableList();
+        return containers.Select(_ => new Listing(_.Name)).ToImmutableList();
     }
 }
