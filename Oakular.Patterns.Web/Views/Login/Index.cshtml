@@ -1,8 +1,10 @@
+@model Microsoft.Extensions.Options.IOptions<Oakular.Patterns.Web.Options.Authentication>
+
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Login</h5>
-        <div id="g_id_onload" data-client_id="335225243076-kmktfstqq9jfok2mre1cvch18rtvbii8.apps.googleusercontent.com"
-            data-context="signin" data-ux_mode="redirect" data-login_uri="https://localhost:7233/login"
+        <div id="g_id_onload" data-client_id="@Model.Value.ClientId"
+            data-context="signin" data-ux_mode="redirect" data-login_uri="/login"
             data-auto_prompt="false">
         </div>
 

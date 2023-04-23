@@ -4,16 +4,25 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Oakular.Patterns.Web.Options;
 
 namespace Oakular.Patterns.Web.Controllers;
 
 [AllowAnonymous]
 public class LoginController : Controller
 {
+    private readonly IOptions<Authentication> authenticationOptions;
+
+    public LoginController(IOptions<Authentication> authenticationOptions)
+    {
+        this.authenticationOptions = authenticationOptions;
+    }
+
     [HttpGet]
     public IActionResult Index()
     {
-        return View();
+        return View(authenticationOptions);
     }
 
     [HttpPost]

@@ -2,6 +2,7 @@ using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Oakular.Patterns.Repository.Repositories;
+using Oakular.Patterns.Web.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                     o.ExpireTimeSpan = TimeSpan.FromHours(8);
                    o.LoginPath = "/Login";
                 });
+
+builder.Services.AddOptions<Authentication>().Bind(builder.Configuration.GetSection("Authentication"));
 
 var app = builder.Build();
 

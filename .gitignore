@@ -42,3 +42,4 @@ obj/
 /Herodotus.Functions/Properties
 __azurite_*.json
 __blobstorage__
+appsettings.Development.json
