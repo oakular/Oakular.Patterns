@@ -32,6 +32,11 @@ public class LoginController : Controller
 
         var payload = await GoogleJsonWebSignature.ValidateAsync(credential);
 
+        if (payload.HostedDomain != authenticationOptions.Value.Domain)
+        {
+            throw new InvalidJwtException("Payload containd incorrect domain");
+        }
+
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, payload.Name),
