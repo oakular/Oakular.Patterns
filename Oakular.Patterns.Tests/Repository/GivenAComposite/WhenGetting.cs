@@ -1,5 +1,5 @@
 using Azure.Storage.Blobs;
-using Oakular.Patterns.Repository;
+using Oakular.Patterns.Repository.Repositories;
 
 namespace Repository.GivenAComposite;
 

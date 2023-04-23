@@ -2,9 +2,9 @@
 using Azure.Storage.Blobs;
 using Oakular.Patterns.Repository.Models;
 
-namespace Oakular.Patterns.Repository;
+namespace Oakular.Patterns.Repository.Repositories;
 
-public sealed class ListingRepository
+public sealed class ListingRepository : IListingRepository
 {
     private readonly BlobServiceClient client;
 

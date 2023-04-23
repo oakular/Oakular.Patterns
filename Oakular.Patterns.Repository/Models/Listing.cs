@@ -4,7 +4,7 @@ public readonly struct Listing : INameable
 {
     public Listing(string name)
     {
-        Name = name;
+        Name = name.Replace(" ", "-");
     }
 
     public string Name { get; }

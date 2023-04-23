@@ -10,7 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
+    <PackageReference Include="FakeItEasy" Version="7.3.1" />
     <PackageReference Include="FluentAssertions" Version="6.11.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -25,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Oakular.Patterns.Repository\Oakular.Patterns.Repository.csproj" />
+    <ProjectReference Include="..\Oakular.Patterns.Web\Oakular.Patterns.Web.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model System.Collections.Generic.IEnumerable<Oakular.Patterns.Web.Models.ListingViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +8,21 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@foreach (var listing in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@listing.Name</h5>
+            <ul class="list-group list-group-flush">
+                @foreach (var composite in listing.Composites)
+                {
+                    <li class="list-group-item">
+                        <a asp-controller="Home" asp-action="Get" asp-route-listing="@listing.Name"
+                            asp-route-composite="@composite.Name" target="_blank">@composite.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}

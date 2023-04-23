@@ -1,6 +1,23 @@
+using Azure.Storage.Blobs;
+using Oakular.Patterns.Repository.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddTransient<IListingRepository, ListingRepository>(_ =>
+{
+    return new ListingRepository(new BlobServiceClient(builder.Configuration.GetConnectionString("default")));
+});
+
+builder.Services.AddTransient<ICompositeRepository, CompositeRepository>(_ =>
+{
+    return new CompositeRepository(new BlobServiceClient(builder.Configuration.GetConnectionString("default")));
+});
+
+builder.Services.AddTransient<CompositeContentRepository>(_ =>
+{
+    return new CompositeContentRepository(new BlobServiceClient(builder.Configuration.GetConnectionString("default")));
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication()
                 .AddJwtBearer(o => 
