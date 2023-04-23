@@ -40,3 +40,5 @@ obj/
 /Herodotus.Functions/Properties/serviceDependencies.json
 /Herodotus.Functions/Properties/launchSettings.json
 /Herodotus.Functions/Properties
+__azurite_*.json
+__blobstorage__
