@@ -30,7 +30,6 @@ pnpm-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 obj/
 /Herodotus.API/appsettings.Development.json
