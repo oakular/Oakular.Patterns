@@ -3,7 +3,8 @@ bin
 node_modules
 dist
 
-wwwroot
+**/wwwroot/js
+
 .DS_Store
 /dist
 
