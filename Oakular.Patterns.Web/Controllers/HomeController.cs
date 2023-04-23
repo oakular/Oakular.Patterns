@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Oakular.Patterns.Repository.Models;
 using Oakular.Patterns.Repository.Repositories;
@@ -6,6 +7,7 @@ using Oakular.Patterns.Web.Models;
 
 namespace Oakular.Patterns.Web.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly IListingRepository listingRepository;
