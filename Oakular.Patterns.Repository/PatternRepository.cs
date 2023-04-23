@@ -6,10 +6,15 @@ namespace Oakular.Patterns.Repository;
 
 public sealed class PatternRepository
 {
+    private readonly BlobContainerClient client;
+
+    public PatternRepository(BlobContainerClient client)
+    {
+        this.client = client;
+    }
+
     public IImmutableList<Pattern> Get()
     {
-        var client = new BlobContainerClient();
-
         var blobs = client.GetBlobs().ToImmutableList();
         return blobs.Select(_ => new Pattern()).ToImmutableList();
     }
